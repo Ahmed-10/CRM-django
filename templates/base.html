@@ -1,9 +1,12 @@
+<!-- load static -->
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css'%}">
     <script src="https://cdn.tailwindcss.com"></script>
     {% if title %}
         <title>CRM Django | {{ title }}</title>
@@ -16,5 +19,6 @@
         {% include 'navbar.html' %}
         {% block content %}{% endblock %}
     </div>
+    <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>
