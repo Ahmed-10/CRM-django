@@ -1,4 +1,5 @@
 from django.urls import reverse
+from django.core.mail import send_mail
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Lead
 
@@ -30,6 +31,14 @@ class LeadCreateView(CreateView):
         context['title'] = 'Create Lead'
         return context
 
+    def form_valid(self, form):
+        send_mail(
+            subject='New Lead Created',
+            message='A new lead has been created',
+            recipient_list=[form.cleaned_data['agent'].user.email],
+            from_email=['hello@world.com']
+        )
+        return super().form_valid(form)
 
 class LeadUpdateView(UpdateView):
     model = Lead
