@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    {% if title %}
+        <title>CRM Django | {{ title }}</title>
+    {% else %}
+        <title>CRM | Django</title>
+    {% endif %}
+</head>
+<body>
+    <div class="max-w-6xl mx-auto">
+        {% include 'navbar.html' %}
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
